@@ -1,0 +1,33 @@
+body {
+  padding: 0;
+  font-family: 'Share', regular; }
+
+.background {
+  background: #0841fc;
+  background: -moz-linear-gradient(left, #0841fc 0%, #001182 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, #0841fc), color-stop(100%, #001182));
+  background: -webkit-linear-gradient(left, #0841fc 0%, #001182 100%);
+  background: -o-linear-gradient(left, #0841fc 0%, #001182 100%);
+  background: -ms-linear-gradient(left, #0841fc 0%, #001182 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#0841fc), to(#001182));
+  background: linear-gradient(to right, #0841fc 0%, #001182 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0841fc', endColorstr='#001182', GradientType=1 ); }
+
+.expletus {
+  font-family: 'Expletus Sans', cursive; }
+
+.share_regular {
+  font-family: 'Share', regular; }
+
+.share_cursive {
+  font-family: 'Share', cursive; }
+
+p {
+  text-align: justify; }
+
+.loggin {
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none;
+  padding: 25px; }

@@ -1,0 +1,41 @@
+// C97 m74 y 1 k0 = 0842fc
+// c100 m91 y32 k 25 = 001182
+body{
+  padding: 0;
+  font-family: 'Share', regular;
+}
+
+.background{
+  background: rgba(8,65,252,1);
+  background: -moz-linear-gradient(left, rgba(8,65,252,1) 0%, rgba(0,17,130,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(8,65,252,1)), color-stop(100%, rgba(0,17,130,1)));
+  background: -webkit-linear-gradient(left, rgba(8,65,252,1) 0%, rgba(0,17,130,1) 100%);
+  background: -o-linear-gradient(left, rgba(8,65,252,1) 0%, rgba(0,17,130,1) 100%);
+  background: -ms-linear-gradient(left, rgba(8,65,252,1) 0%, rgba(0,17,130,1) 100%);
+  background: linear-gradient(to right, rgba(8,65,252,1) 0%, rgba(0,17,130,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0841fc', endColorstr='#001182', GradientType=1 );
+}
+
+.expletus{
+  font-family: 'Expletus Sans', cursive;
+}
+
+.share_regular{
+  font-family: 'Share', regular;
+}
+
+.share_cursive{
+  font-family: 'Share', cursive;
+}
+
+p{
+  text-align: justify;
+}
+
+.loggin{
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px none;
+  padding: 25px;
+}
