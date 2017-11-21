@@ -7,7 +7,7 @@ class funciones_BD {
     // constructor
 
     function __construct() {
-        require_once 'connection/connectbd.php';
+        require_once 'connectbd.php';
         // connecting to database
 
         $this->db = new DB_Connect();
@@ -64,7 +64,7 @@ class funciones_BD {
 
 	public function login($user,$passw){
 
-	$result=mysql_query("SELECT COUNT(*) FROM usuarios WHERE username='$user' AND passw='$passw' ");
+	$result=mysql_query("SELECT COUNT(*) FROM usuarios WHERE username='$user' AND pass='$passw' ");
 	$count = mysql_fetch_row($result);
 
 	/*como el usuario debe ser unico cuenta el numero de ocurrencias con esos datos*/

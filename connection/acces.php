@@ -17,9 +17,9 @@ $db = new funciones_BD();
 	$resultado[]=array("Bienvenido ".$usuario); // en este bloque se redireige a otra direccion, yasea dashboard u otro lado
 	}
 
-echo json_encode($resultado);
+//echo json_encode($resultado);
 
-
+	header('Location: ../acceso/index.html');
 
 
 ?>
