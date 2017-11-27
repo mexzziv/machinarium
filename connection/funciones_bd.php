@@ -81,6 +81,20 @@ class funciones_BD {
 		}
 	}
 
+  /* agregar datos al formulario 1 */
+  public function addform1($username, $password) {
+    $result = mysql_query("INSERT INTO usuarios(username,pass) VALUES('$username', '$password')");
+        // check for successful store
+
+        if ($result) {
+
+            return true;
+
+        } else {
+
+            return false;
+        }
+  }
 }
 
 ?>

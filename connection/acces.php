@@ -19,7 +19,7 @@ $db = new funciones_BD();
 
 //echo json_encode($resultado);
 
-	header('Location: ../acceso/index.html');
+	header('Location: ../acceso/index.php?usuario='.$usuario);
 
 
 ?>
