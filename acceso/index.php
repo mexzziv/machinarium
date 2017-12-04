@@ -26,17 +26,18 @@
     </nav>
 
     <div class="container row">
+      <!-- Card Agregar -->
       <div class="col-md-5 col-xs-12">
         <div class="card">
-          <h1>agregar datos</h1>
+          <h1>Agregar datos</h1>
           <div class="card-block">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formato_1">
               Formato 1
             </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <!-- Modal datos-->
+            <div class="modal fade" id="formato_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -48,16 +49,48 @@
                   <form action="../connection/save_form1.php" method="post">
                     <div class="modal-body">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="text" name="" value="" placeholder="Nombre">
+                        <label for="text_label">Cliente</label>
+                        <input type="text" name="cliente" value="" placeholder="Cliente">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="date" name="" value="" placeholder="fecha" class="form-control">
+                        <label for="text_label">Nombre</label>
+                        <input type="text" name="nombre" value="" placeholder="Nombre">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Compañia</label>
+                        <input type="text" name="compani" value="" placeholder="Compañia">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">No. Personal</label>
+                        <input type="text" name="no_personal" value="" placeholder="No. Personal">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Cliente</label>
+                        <input type="text" name="cliente" value="" placeholder="Cliente">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="text_label">Viaje de </label>
+                        <input type="text" name="inicio_lugar" value="" placeholder="Inicio"> a
+                        <input type="text" name="fin_lugar" value="" placeholder="Inicio">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Salida</label>
+                        <input type="date" name="dia_salida" value="">
+                        <input type="time" name="hora_salida" value="">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Entrada</label>
+                        <input type="date" name="dia_entrada" value="">
+                        <input type="time" name="hora_entrada" value="">
+                      </div>
+                      <div class="form-group">
+                        <label for="text-label">Lugar de Montaje/Servicio</label>
+                        <input type="text" name="lugar" value="" placeholder="Lugar de Montaje/Servicio">
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
                       <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                   </form>
@@ -67,17 +100,18 @@
           </div>
         </div>
       </div>
+      <!-- Card PDF -->
       <div class="col-md-7 col-xs-12">
         <div class="card">
           <h1>Buscar</h1>
           <div class="card-block">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf_1">
               PDF 1
             </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <!-- Modal PDF-->
+            <div class="modal fade" id="pdf_1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -86,7 +120,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <form action="#" method="post">
+                  <form action="../pdf/reporte_1.php" method="post">
                     <div class="modal-body">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
@@ -99,7 +133,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="submit" class="btn btn-primary">Generar PDF</button>
+                      <button type="submit" class="btn btn-primary">Enviar</button>
                     </div>
                   </form>
                 </div>
@@ -107,8 +141,74 @@
             </div>
           </div>
         </div>
-
       </div>
+
+      <div class="col-md-5 col-xs-12">
+        <div class="card">
+          <h1>Agregar Empleado</h1>
+          <div class="card-block">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#empleado">
+              Empleado
+            </button>
+
+            <!-- Modal datos-->
+            <div class="modal fade" id="empleado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Empleado</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form action="../connection/empleado.php" method="post">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <label for="text_label">Nombre</label>
+                        <input type="text" name="nombre" value="" placeholder="Nombre">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Apellido Paterno</label>
+                        <input type="text" name="app" value="" placeholder="Apellido Paterno">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Apellido Materno</label>
+                        <input type="text" name="apm" value="" placeholder="Apellido Materno">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Nacimiento</label>
+                        <input type="date" name="nacimiento" value="" placeholder="Nacimiento">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">CURP</label>
+                        <input type="text" name="curp" value="" placeholder="CURP">
+                      </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="text_label">RFC</label>
+                        <input type="text" name="rfc" value="" placeholder="RFC">
+                      </div>
+                      <div class="form-group">
+                        <label for="categoria">Categoria</label>
+                          <select class="form-control" id="categoria" name="categoria">
+                          <option value="1">Ing. Especializado</option>
+                          <option value="2">Ing. Especializado</option>
+                          <option value="3">Ing. Especializado</option>
+                          <option value="4">Ing. Especializado</option>
+                          <option value="5">Ing. Especializado</option>
+                          <option value="6">Ing. Especializado</option>
+                          <option value="7">Ing. Especializado</option>
+                        </select>
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
     </div>
 
     <!-- cdn de javascript-->

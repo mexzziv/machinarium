@@ -95,6 +95,16 @@ class funciones_BD {
             return false;
         }
   }
+
+  /* agregar empleado */
+  public function empleado($nombre,$app,$apm,$nacimiento,$curp,$rfc,$categoria){
+    $result = mysql_query("INSERT INTO empleado(nombre,app,apm,nacimiento,curp,rfc,id_categoria) VALUES('$nombre','$app','$apm','$nacimiento','$curp','$rfc','$categoria')");
+    if($result){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 
 ?>
