@@ -15,6 +15,9 @@
   <body class="fondo">
     <?php
       $usuario = $_GET['usuario'];
+
+      require_once '../connection/funciones_bd.php';
+      $db = new funciones_BD();
     ?>
 
     <nav class="background">
@@ -26,10 +29,10 @@
     </nav>
 
     <div class="container row">
-      <!-- Card Agregar -->
+      <!-- Agregar Fecha (WORD)-->
       <div class="col-md-5 col-xs-12">
         <div class="card">
-          <h1>Agregar datos</h1>
+          <h1>Agregar datos (WORD)</h1>
           <div class="card-block">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formato_1">
@@ -49,30 +52,24 @@
                   <form action="../connection/save_form1.php" method="post">
                     <div class="modal-body">
                       <div class="form-group">
-                        <label for="text_label">Cliente</label>
-                        <input type="text" name="cliente" value="" placeholder="Cliente">
+                        <?=
+                        $db->empresa_llenar();
+                        ?>
                       </div>
                       <div class="form-group">
-                        <label for="text_label">Nombre</label>
-                        <input type="text" name="nombre" value="" placeholder="Nombre">
+                        <?=
+                          $db->cliente_llenar();
+                        ?>
                       </div>
                       <div class="form-group">
-                        <label for="text_label">Compañia</label>
-                        <input type="text" name="compani" value="" placeholder="Compañia">
+                        <?=
+                          $db->empleado_llenar();
+                        ?>
                       </div>
-                      <div class="form-group">
-                        <label for="text_label">No. Personal</label>
-                        <input type="text" name="no_personal" value="" placeholder="No. Personal">
-                      </div>
-                      <div class="form-group">
-                        <label for="text_label">Cliente</label>
-                        <input type="text" name="cliente" value="" placeholder="Cliente">
-                      </div>
-                      <br>
                       <div class="form-group">
                         <label for="text_label">Viaje de </label>
-                        <input type="text" name="inicio_lugar" value="" placeholder="Inicio"> a
-                        <input type="text" name="fin_lugar" value="" placeholder="Inicio">
+                        <input type="text" name="origen" value="" placeholder="Origen"> a
+                        <input type="text" name="destino" value="" placeholder="Destino">
                       </div>
                       <div class="form-group">
                         <label for="text_label">Salida</label>
@@ -100,14 +97,14 @@
           </div>
         </div>
       </div>
-      <!-- Card PDF -->
+      <!-- Generar PDF WORD-->
       <div class="col-md-7 col-xs-12">
         <div class="card">
-          <h1>Buscar</h1>
+          <h1>Buscar (WORD)</h1>
           <div class="card-block">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf_1">
-              PDF 1
+            PDF 1
             </button>
 
             <!-- Modal PDF-->
@@ -117,18 +114,140 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">PDF 1</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <form action="../pdf/reporte_1.php" method="post">
                     <div class="modal-body">
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="text" name="" value="" placeholder="Nombre">
+                        <?=
+                        $db->empresa_llenar();
+                        ?>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="date" name="" value="" placeholder="fecha" class="form-control">
+                        <?=
+                        $db->cliente_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <?=
+                        $db->empleado_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Fecha de </label>
+                        <input type="date" name="dia_inicio" value="">
+                        <input type="date" name="dia_final" value="">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Agregar Semana (EXCEL)-->
+      <div class="col-md-5 col-xs-12">
+        <div class="card">
+          <h1>Agregar datos (Excel)</h1>
+          <div class="card-block">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formato_2">
+              Formato 2
+            </button>
+
+            <!-- Modal datos-->
+            <div class="modal fade" id="formato_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Formato 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form action="../connection/actividad_form.php" method="post">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <?=
+                        $db->empresa_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <?=
+                          $db->cliente_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <?=
+                          $db->maquina_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Fecha </label>
+                        <input type="date" name="fecha_actividad" value="" placeholder="Fecha">
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Actividad</label>
+                        <input type="text" name="actividad" value="" placeholder="Actividad">
+                      </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
+                      <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Generar PDF EXCEL -->
+      <div class="col-md-7 col-xs-12">
+        <div class="card">
+          <h1>Buscar (Excel)</h1>
+          <div class="card-block">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdf_2">
+              PDF 2
+            </button>
+
+            <!-- Modal PDF-->
+            <div class="modal fade" id="pdf_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">PDF 2</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <form action="../pdf/reporte_2.php" method="post">
+                    <div class="modal-body">
+                      <div class="form-group">
+                        <?=
+                        $db->empresa_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <?=
+                          $db->cliente_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <?=
+                          $db->maquina_llenar();
+                        ?>
+                      </div>
+                      <div class="form-group">
+                        <label for="text_label">Fecha de </label>
+                        <input type="date" name="dia_inicio" value="">
+                        <input type="date" name="dia_final" value="">
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -142,14 +261,14 @@
           </div>
         </div>
       </div>
-
+      <!-- Agregar empledo -->
       <div class="col-md-5 col-xs-12">
         <div class="card">
           <h1>Agregar Empleado</h1>
           <div class="card-block">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#empleado">
-              Empleado
+            Empleado
             </button>
 
             <!-- Modal datos-->
@@ -159,7 +278,7 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Empleado</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <form action="../connection/empleado.php" method="post">
@@ -191,25 +310,28 @@
                       </div>
                       <div class="form-group">
                         <label for="categoria">Categoria</label>
-                          <select class="form-control" id="categoria" name="categoria">
+                        <select class="form-control" id="categoria" name="categoria">
                           <option value="1">Ing. Especializado</option>
-                          <option value="2">Ing. Especializado</option>
-                          <option value="3">Ing. Especializado</option>
-                          <option value="4">Ing. Especializado</option>
-                          <option value="5">Ing. Especializado</option>
-                          <option value="6">Ing. Especializado</option>
-                          <option value="7">Ing. Especializado</option>
+                          <option value="2">Ing. Servicio</option>
+                          <option value="3">Ing. Montaje</option>
+                          <option value="4">Tec. Montaje</option>
+                          <option value="5">Supervision</option>
+                          <option value="6">Montaje</option>
+                          <option value="7">Ayudante</option>
                         </select>
                       </div>
-                    <div class="modal-footer">
+                      <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
                       <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-    </div>
+          </div>
+        </div>
+      </div>
 
     <!-- cdn de javascript-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

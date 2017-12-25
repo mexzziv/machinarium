@@ -6,7 +6,7 @@
 
   $id_empresa = $_POST['empresa'];
   $id_cliente = $_POST['cliente'];
-  $id_empleado = $_POST['empleado'];
+  $id_maquina = $_POST['maquina'];
   $dia_inicio = $_POST['dia_inicio'];
   $dia_final = $_POST['dia_final'];
 ?>
@@ -22,10 +22,10 @@
     <?php
       $db-> dato_empresa($id_empresa);
       $db-> dato_cliente($id_cliente);
-      $db-> dato_empleado($id_empleado);
+      $db-> dato_maquina($id_maquina);
     ?>
     <br>
-    <p><?php $db -> buscar_fechas($id_empresa,$id_cliente,$id_empleado,$dia_inicio,$dia_final);
+    <p><?php $db -> buscar_actividades($id_empresa,$id_cliente,$id_maquina,$dia_inicio,$dia_final);
     ?></p>
   <page_footer>
     <div style="font-size:10px; color:#848484; text-align: center;" >agregar datos</div>
