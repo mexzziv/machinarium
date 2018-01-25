@@ -106,6 +106,24 @@ class funciones_BD {
     }
   }
 
+  public function agregarEmpresa($empresa,$direccion,$telefono,$email){
+    $result = mysql_query("INSERT INTO empresa(empresa,direccion,telefono,email) VALUES('$empresa','$direccion','$telefono','$email')");
+    if($result){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  public function agregarMaquina($serie,$modelo){
+    $result = mysql_query("INSERT INTO maquinas(serie,modelo) VALUES('$serie','$modelo')");
+    if($result){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   public function empresa_llenar() {
     echo "<div class='form-group'>
       <label for='empresa'>Empresa</label>
@@ -117,6 +135,15 @@ class funciones_BD {
      }
      echo "</select>
    </div>";
+  }
+
+  public function agregarCliente($nombre,$app,$apm,$telefono,$email,$id_empresa){
+    $result = mysql_query("INSERT INTO cliente(nom,app,apm,telefono,email,id_empresa) VALUES('$nombre','$app','$apm','$telefono','$email','$id_empresa')");
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
   }
 
   public function cliente_llenar() {
@@ -234,6 +261,10 @@ class funciones_BD {
       return false;
     }
 
+  }
+
+  public function actualizar_pass($usuario,$pass){
+    $result = mysql_query("UPDATE ");
   }
 }
 

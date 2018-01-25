@@ -1,4 +1,3 @@
-
 <?php
 
 /*LOGIN*/
@@ -11,15 +10,12 @@ require_once 'funciones_bd.php';
 $db = new funciones_BD();
 
 	if($db->login($usuario,$passw)){
+		header('Location: ../index.html');
 
-	$resultado[]=array("El usuario ".$usuario." no existe."); // en este bloque se puede redirigir a index de nuevo o a registrar
 	}else{
-	$resultado[]=array("Bienvenido ".$usuario); // en este bloque se redireige a otra direccion, yasea dashboard u otro lado
+		header('Location: ../acceso/index.php?usuario='.$usuario);
 	}
 
 //echo json_encode($resultado);
-
-	header('Location: ../acceso/index.php?usuario='.$usuario);
-
 
 ?>

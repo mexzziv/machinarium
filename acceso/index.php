@@ -14,6 +14,12 @@
 </head>
 
 <body>
+  <?php
+    $usuario = $_GET['usuario'];
+
+    require_once '../connection/funciones_bd.php';
+    $db = new funciones_BD();
+  ?>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <h3 class="navbar-brand expletus" >Machinarium</h3>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +28,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="configuracion.php">Configuracion</a>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleConfiguracion">
+              Configuracion
+            </button>
+            <?php include 'parciales/configuracion.php'; ?>
           </li>
         </ul>
           <a class="btn btn-outline-warning my-2 my-sm-0" href="salir.php">Salir</a>
@@ -33,91 +42,29 @@
     <div class="container">
       <div class="row">
         <div class="col-4">
-          <div class="row">
-            <div class="col-5">
-              <div class="list-group" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="Empresa">Empresa</a>
-              </div>
-            </div>
-            <div class="col-7">
-              <div class="tab-content" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-Empresa-list">
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#agregarEmpresa">
-                    Agregar
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="agregarEmpresa" tabindex="-1" role="dialog" aria-labelledby="agregarEmpresaLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampagregarEmpresa">Agregar Empresa</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          ...
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-                          <button type="button" class="btn btn-primary">Guardar</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php include 'parciales/nav_lateral.php';?>
         </div>
         <div class="col-8">
           <div class="row">
             <div class="col-md-6 col-sm-12">
-              <div class="card">
-                <div class="card-header">
-                  Generar PDF Actividades
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Generador del reporte de actividades, de acuerdo a un periodo de tiempo.</p>
-                  <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
-                    PDF
-                  </button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Generar Busqueda</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          ...
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <?php  include 'parciales/actividades_pdf.php';?>
             </div>
             <div class="col-md-6  col-sm-12">
-              <div class="card">
-                <div class="card-header">
-                  Generar PDF horas Laborales
-                </div>
-                <div class="card-body">
-                  <p class="card-text">Generar PDF de las hora laboradas de cada empleado.</p>
-                  <a href="#" class="btn btn-outline-info">PDF</a>
-                </div>
-              </div>
+              <?php include 'parciales/horas_pdf.php'; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <!--
+              <h1 class="display-3">Ultimos Movimientos</h1>
+              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+              -->
             </div>
           </div>
         </div>
@@ -126,7 +73,7 @@
 
     <footer class="footer">
       <div class="container">
-        <span class="text-muted">Machinarium 2018</span>
+        <span class="text-muted expletus">Machinarium 2018</span>
       </div>
     </footer>
 
